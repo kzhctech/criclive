@@ -114,9 +114,30 @@ body {
 	
 	const socket = io('ws://localhost:8080');
 	
-socket.on('message', text => {
+socket.on('message', txt => {
 
-    console.log(text);
+
+ var Data = JSON.parse(txt);
+    console.log(Data.team);
+    
+    
+    
+    
+    updateElement("team", Data.team);
+updateElement("runs", Data.runs);
+updateElement("wickets", Data.wickets);
+updateElement("overs", Data.overs);
+
+updateElement("batsman1Name", Data.batsman1.name);
+updateElement("batsman1Runs", Data.batsman1.runs);
+updateElement("batsman1BallsFaced", Data.batsman1.ballsFaced);
+
+updateElement("batsman2Name", Data.batsman2.name);
+updateElement("batsman2Runs", Data.batsman2.runs);
+updateElement("batsman2BallsFaced", Data.batsman2.ballsFaced);
+
+    
+    
 
 });
 	
